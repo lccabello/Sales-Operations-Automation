@@ -1,50 +1,72 @@
 # Sales Operations & Business Automation Suite 🚀
 
-This repository contains a collection of automation tools and scripts developed to optimize the **B2B Sales Cycle** and **CRM Management** for a telecommunications provider.
+This repository showcases a full-cycle B2B Sales Automation ecosystem. I designed and coded these tools to solve a critical lack of infrastructure in a telecommunications company, transforming manual data entry into an automated, data-driven workflow.
 
 **Role:** Sales Operations Analyst / Developer
-**Focus:** Process Automation, Data Integrity, Geospatial Analysis.
+**Focus:** Process Automation, Advanced Data Modeling, Geospatial Analysis.
 
 ---
 
-## 🛠️ Key Features
+## 🚀 1. The "Command Center": Automated CRM & Workflow
+**Context:** Managing a dataset of **1,000+ corporate clients** (Phone, Email, Tech Stack) required a dynamic solution, not just a static spreadsheet.
 
-### 1. Automated Call Scheduling (Google Apps Script)
-**Problem:** Manual data entry from leads sheets to Google Calendar was time-consuming and prone to errors.
-**Solution:** Developed a script that parses lead data from Google Sheets, validates date/time formats, and automatically creates calendar events with formatted descriptions.
-**Impact:** Reduced scheduling time by approx. 40% and improved follow-up consistency.
+### Feature A: Intelligent Proposal Generator
+Instead of manually typing messages, I built a custom UI button integrated into the sheet.
+* **Logic:** The script reads the active row, analyzes the client's technology, and generates a tailored B2B proposal.
+* **Visuals:** A custom menu button triggers a logic prompt to select the sales strategy.
 
-📄 **File:** [`agendar_llamada.js`](./agendar_llamada.js)
+![Button View](./boton_script.png)
+![Prompt View](./menu_propuesta.png)
 
-### 2. WhatsApp Proposal Generator
-**Problem:** Drafting personalized B2B proposals for "Tech Refresh" vs. "Plan Upgrade" manually was inefficient.
-**Solution:** Created a script that extracts client data, provides a UI prompt to select the proposal type, and generates a pre-written professional message.
+### Feature B: Live Calendar Synchronization
+Implemented a **CRUD (Create, Read, Update, Delete)** logic for scheduling:
+* **Real-time Sync:** Typing a date in the "Meeting" column automatically books the Google Calendar slot with client details.
+* **Smart Management:** If the date is changed, the event updates. If the date is deleted, the event is removed from the calendar automatically.
 
-📄 **File:** [`whatsapp_b2b_generator.js`](./whatsapp_b2b_generator.js)
+![Calendar Event](./calendar_automation.png)
+
+📄 **Source Code:** [`agendar_llamada.js`](./agendar_llamada.js), [`whatsapp_b2b_generator.js`](./whatsapp_b2b_generator.js)
 
 ---
 
-## 📊 Visuals & Data Analysis
+## 🌍 2. Geospatial Intelligence (QGIS)
+**Context:** Blindly calling clients is inefficient. I needed to know exactly which companies were within the Fiber Optic coverage zone before making contact.
 
-### CRM Dashboard & Tracking
-*Custom Google Sheets CRM implementation to track 1,000+ corporate leads.*
+**The Solution:**
+I built a custom project in **QGIS** to visualize the market territory.
+* **Layering:** Overlaid the company's network node map with the address database of potential corporate clients.
+* **Lead Qualification:** Visually filtered out unserviceable leads, focusing efforts only on "connectable" high-value prospects.
+* **Privacy & Security:** *Data shown in the visualization below has been sanitized/masked to protect client confidentiality.*
 
-![CRM Dashboard](./dashboard_sheets.png)
-*(Note: Sensitive client data has been obscured for privacy)*
+![QGIS Coverage Map](./qgis_coverage_map.png)
 
-### Geospatial Intelligence (QGIS)
-*Custom coverage maps created to identify B2B prospects within Fiber Optic zones.*
+---
 
-![QGIS Map](./qgis_coverage_map.png)
+## 📊 3. Automated Reporting & Analytics
+**The Context:** Raw data is useless without interpretation. The CRM accumulates thousands of scattered data points daily.
+
+**The Data Pipeline:**
+I designed a 3-stage visualization process within Google Sheets to turn noise into insights.
+
+**Step 1: Raw Data Collection**
+Aggregated unstructured input from sales calls, tech logs, and client interactions.
+![Raw Data](./dashboard_raw.png)
+
+**Step 2: Structured Processing**
+Used complex formulas (`QUERY`, `FILTER`, `ARRAYFORMULA`) to sanitize the data and group it into summary tables with percentages and hard numbers.
+![Data Tables](./dashboard_tables.png)
+
+**Step 3: Executive Dashboard (KPIs)**
+The final output. A visual command center that tracks performance in real-time, allowing for data-driven decisions on sales strategy.
+![Dashboard KPIs](./dashboard_kpi.png)
 
 ---
 
 ## 💻 Tech Stack
 * **Languages:** JavaScript (Google Apps Script)
-* **Data:** Google Sheets (Advanced Formulas, Query), JSON
-* **GIS:** QGIS (Geospatial Analysis)
-* **Tools:** Zoho Invoice, PandaDoc
+* **Data Engineering:** Google Sheets (Advanced Query/Logic), JSON processing.
+* **GIS Tools:** QGIS (Vector analysis, Layering).
+* **Integration:** Zoho Invoice, PandaDoc.
 
 ---
-
 *Project developed by [Lucas Cabello]([https://www.linkedin.com/in/lucas-cabello](https://www.linkedin.com/in/lucas-cabello-477b71289/))*
